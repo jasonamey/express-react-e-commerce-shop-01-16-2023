@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Cart } from "./screens";
-import LoginM from "./screens/LoginM";
-import RegisterM from "./screens/RegisterM";
+import LoginM from "./screens/Login";
+import RegisterM from "./screens/Register";
 import Home from "./screens/Home";
 import AddProduct from "./screens/AddProdcut";
 import EditProduct from "./screens/EditProduct";

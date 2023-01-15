@@ -13,7 +13,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await axios(`${url}/products`);
+      const response = await axios(`${ url }/products`);
       const { products } = response.data;
       setProducts(products);
     };
@@ -21,28 +21,26 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <Grid container spacing={2} p={4}>
-      {products?.map((product) => (
+    <Grid container spacing={ 2 } p={ 4 }>
+      { products?.map((product) => (
         <Grid
-          key={product._id}
+          key={ product._id }
           item
-          xs={12}
-          sm={6}
-          md={3}
+          xs={ 12 }
+          sm={ 6 }
+          md={ 3 }
           display="flex"
           justifyContent="center"
         >
           <Product
-            key={product._id}
-            {...product}
-            isAdmin={adminStatus.isAdmin}
+            key={ product._id }
+            { ...product }
+            isAdmin={ adminStatus.isAdmin }
           />
         </Grid>
-      ))}
+      )) }
     </Grid>
   );
 };
 
 export default HomeScreen;
-
-// <Container sx={{ backgroundColor: 'green'}}>

@@ -11,58 +11,6 @@ const faskeStripeAPI = async ({ amount, currency }) => {
 }
 
 const createOrder = async (req, res) => {
-  // const { items: cartItems, tax, shippingFee } = req.body
-  // console.log(cartItems, tax, shippingFee)
-  // if (!cartItems || cartItems.length < 1) {
-  //   throw new CustomError.BadRequestError('No cart items provided')
-  // }
-
-  // if (!tax || !shippingFee) {
-  //   throw new CustomError.BadRequestError(
-  //     'Please provided tax and shipping fee'
-  //   )
-  // }
-
-  // let orderItems = []
-  // let subtotal = 0
-
-  // for (const item of cartItems) {
-  //   const dbProduct = await Product.findOne({ _id: item.product })
-  //   if (!dbProduct) {
-  //     throw new CustomError.NotFoundError(
-  //       `No product with id: ${item.product}`
-  //     )
-  //   }
-  //   const { name, price, image, _id } = dbProduct
-  //   const singleOrderItem = {
-  //     amount: item.amount,
-  //     name, 
-  //     price, 
-  //     image, 
-  //     product: _id
-  //   }
-  //   orderItems = [...orderItems, singleOrderItem]
-  //   subtotal += item.amount * price
-  // }
-
-
-  // const total = tax + shippingFee + subtotal
-
-
-  // const paymentIntent = await faskeStripeAPI({
-  //   amount: total, 
-  //   currency: 'usd'
-  // })
-
-  // const order = await Order.create({
-  //   orderItems,
-  //   total, 
-  //   subtotal, 
-  //   tax, 
-  //   shippingFee, 
-  //   clientSecret: paymentIntent.client_secret,
-  //   user: req.user.userId
-  // })
 
   res
     .status(StatusCodes.CREATED)

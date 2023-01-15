@@ -18,8 +18,6 @@ const paymentRouter = require('./routes/paymentRoutes')
 
 const errorHandlerMiddleware = require('./middleware/error-handler')
 const notFound = require('./middleware/not-found')
-// const { auth } = require('./middleware/authentication')
-
 
 const app = express()
 
@@ -45,7 +43,6 @@ app.use('/payment', paymentRouter)
 
 app.get('/test', (req, res) => {
   throw new Error("broken route")
-  // res.send("test")
 }
 )
 
@@ -61,8 +58,6 @@ app.get('/', (req, res, next) => {
 
 app.use(notFound)
 app.use(errorHandlerMiddleware)
-
-
 
 const start = async () => {
   try {

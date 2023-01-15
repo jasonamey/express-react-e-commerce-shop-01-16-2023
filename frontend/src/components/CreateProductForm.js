@@ -57,11 +57,11 @@ const CreateProductForm = () => {
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${ token }`,
       },
     };
     const response = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}/products/uploadImage`,
+      `${ process.env.REACT_APP_BASE_URL }/products/uploadImage`,
       formData,
       config
     );
@@ -72,15 +72,6 @@ const CreateProductForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await uploadImage();
-
-    // const config = {
-    //   headers : {
-    //     'Content-Type': 'application/json',
-    //     'Authorization': `Bearer ${token}`
-    //   }
-    // }
-    // const { data } = await axios.post(`${process.env.REACT_APP_BASE_URL}/products`, formik.values, config )
-    // console.log(data)
   };
   const formik = useFormik({
     initialValues: {
@@ -97,53 +88,53 @@ const CreateProductForm = () => {
   });
   return (
     <FormControl>
-      <Grid container spacing={3} p={6}>
-        <Grid item xs={12} sm={6}>
+      <Grid container spacing={ 3 } p={ 6 }>
+        <Grid item xs={ 12 } sm={ 6 }>
           <TextField
             fullWidth
             id="title"
             name="title"
             label="Title"
             type="text"
-            value={formik.values.title}
-            onChange={formik.handleChange}
-            error={formik.touched.title && Boolean(formik.errors.title)}
-            helperText={formik.touched.title && formik.errors.title}
+            value={ formik.values.title }
+            onChange={ formik.handleChange }
+            error={ formik.touched.title && Boolean(formik.errors.title) }
+            helperText={ formik.touched.title && formik.errors.title }
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={ 12 } sm={ 6 }>
           <TextField
             fullWidth
             id="price"
             name="price"
             label="Price"
             type="number"
-            value={formik.values.price}
-            onChange={formik.handleChange}
-            error={formik.touched.price && Boolean(formik.errors.price)}
-            helperText={formik.touched.price && formik.errors.price}
-            InputProps={{
+            value={ formik.values.price }
+            onChange={ formik.handleChange }
+            error={ formik.touched.price && Boolean(formik.errors.price) }
+            helperText={ formik.touched.price && formik.errors.price }
+            InputProps={ {
               startAdornment: (
                 <InputAdornment position="start">$ </InputAdornment>
               ),
-            }}
+            } }
           />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={ 12 }>
           <TextField
             fullWidth
             id="description"
             name="description"
             label="Description"
-            value={formik.values.description}
-            onChange={formik.handleChange}
+            value={ formik.values.description }
+            onChange={ formik.handleChange }
             error={
               formik.touched.description && Boolean(formik.errors.description)
             }
-            helperText={formik.touched.description && formik.errors.description}
+            helperText={ formik.touched.description && formik.errors.description }
           />
         </Grid>
-        <Grid item sm={3} xs={6}>
+        <Grid item sm={ 3 } xs={ 6 }>
           <FormControl fullWidth>
             <InputLabel id="year">Year</InputLabel>
             <Select
@@ -151,22 +142,22 @@ const CreateProductForm = () => {
               name="year"
               defaultValue=""
               label="Year"
-              value={formik.values.year}
-              onChange={formik.handleChange}
-              error={formik.touched.year && Boolean(formik.errors.year)}
-              helpertext={formik.touched.year && formik.errors.year}
+              value={ formik.values.year }
+              onChange={ formik.handleChange }
+              error={ formik.touched.year && Boolean(formik.errors.year) }
+              helpertext={ formik.touched.year && formik.errors.year }
             >
-              {[1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980].map(
+              { [1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980].map(
                 (item) => (
-                  <MenuItem key={item} value={item}>
-                    {item}
+                  <MenuItem key={ item } value={ item }>
+                    { item }
                   </MenuItem>
                 )
-              )}
+              ) }
             </Select>
           </FormControl>
         </Grid>
-        <Grid item sm={3} xs={6}>
+        <Grid item sm={ 3 } xs={ 6 }>
           <FormControl fullWidth>
             <InputLabel id="format">Format</InputLabel>
             <Select
@@ -174,26 +165,26 @@ const CreateProductForm = () => {
               name="format"
               defaultValue=""
               label="Format"
-              value={formik.values.format}
-              onChange={formik.handleChange}
-              error={formik.touched.format && Boolean(formik.errors.format)}
-              helpertext={formik.touched.format && formik.errors.format}
+              value={ formik.values.format }
+              onChange={ formik.handleChange }
+              error={ formik.touched.format && Boolean(formik.errors.format) }
+              helpertext={ formik.touched.format && formik.errors.format }
             >
-              {["vinyl", "cd", "mp3", "8-track"].map((item) => (
-                <MenuItem key={item} value={item}>
-                  {item}
+              { ["vinyl", "cd", "mp3", "8-track"].map((item) => (
+                <MenuItem key={ item } value={ item }>
+                  { item }
                 </MenuItem>
-              ))}
+              )) }
             </Select>
           </FormControl>
         </Grid>
-        <Grid item sm={3} xs={6}>
+        <Grid item sm={ 3 } xs={ 6 }>
           <input
             accept="image/*"
-            style={{ display: "none" }}
+            style={ { display: "none" } }
             id="button-file"
             type="file"
-            onChange={onFileChange}
+            onChange={ onFileChange }
           />
           <label htmlFor="button-file">
             <Button fullWidth variant="outlined" component="span" size="large">
@@ -201,18 +192,18 @@ const CreateProductForm = () => {
             </Button>
           </label>
         </Grid>
-        <Grid item sm={3} xs={6}>
+        <Grid item sm={ 3 } xs={ 6 }>
           <Typography variant="subtitle2">
-            {fileData?.name}
-            {fileData?.name && (
-              <IconButton onClick={deleteHandler}>
+            { fileData?.name }
+            { fileData?.name && (
+              <IconButton onClick={ deleteHandler }>
                 <Delete />
               </IconButton>
-            )}
+            ) }
           </Typography>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Button type="submit" variant="contained" onClick={handleSubmit}>
+        <Grid item xs={ 12 } sm={ 6 }>
+          <Button type="submit" variant="contained" onClick={ handleSubmit }>
             submit
           </Button>
         </Grid>
